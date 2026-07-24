@@ -16,4 +16,18 @@ function calculateBmi(heightCm: number, weightKg: number) {
     return `${category} range`
 }
 
-console.log(calculateBmi(180, 74))
+// console.log(calculateBmi(180, 74))
+
+const bmiArgs: string[] = process.argv.slice(2);
+
+if (bmiArgs.length < 2) {
+  console.log('Error: Please provide a target value followed by daily exercise hours.');
+  console.log('Example: npm run calculateBMI 180 74');
+  process.exit(1);
+}
+
+const heightCm = Number(bmiArgs[0]);
+
+const weightKg = Number(bmiArgs[1]);
+
+console.log(calculateBmi(heightCm, weightKg));

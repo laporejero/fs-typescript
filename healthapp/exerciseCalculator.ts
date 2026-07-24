@@ -44,4 +44,21 @@ function calculateExercises(dailyExercises: number[], target: number): Result {
     };
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+const exerciseArgs: string[] = process.argv.slice(2);
+
+if (exerciseArgs.length < 2) {
+  console.log('Error: Please provide a target value followed by daily exercise hours.');
+  console.log('Example: npm run calculateExercises 2 1 0 2 4.5 0 3 1');
+  process.exit(1);
+}
+
+const targetInput = Number(exerciseArgs[0]);
+
+const hoursInput: number[] = exerciseArgs.slice(1).map(hours => Number(hours));
+
+if (isNaN(targetInput) || hoursInput.some((hours: number) => isNaN(hours))) {
+  console.log('Error: All provided values must be valid numbers.');
+  process.exit(1);
+}
+
+console.log(calculateExercises(hoursInput, targetInput));
