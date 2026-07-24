@@ -9,11 +9,18 @@
   "scripts": {
     "tsc": "tsc",
     "calculateBMI": "tsc bmiCalculator.ts --ignoreConfig --types node && node bmiCalculator.js",
-    "calculateExercises": "tsc exerciseCalculator.ts --ignoreConfig --types node && node exerciseCalculator.js"
+    "calculateExercises": "tsc exerciseCalculator.ts --ignoreConfig --types node && node exerciseCalculator.js",
+    "start": "node index.ts",
+    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\""
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
+    "concurrently": "^10.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
