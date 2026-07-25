@@ -4,7 +4,7 @@ import { calculateExercises, type Result } from './exerciseCalculator.ts';
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
 app.get('/hello', (_req, res) => {
   res.send('Hello Full Stack!');
