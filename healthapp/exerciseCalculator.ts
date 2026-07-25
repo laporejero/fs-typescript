@@ -1,4 +1,4 @@
-interface Result {
+export interface Result {
     periodLength: number;
     trainingDays: number;
     success: boolean;
@@ -8,7 +8,7 @@ interface Result {
     average: number;
 }
  
-function calculateExercises(dailyExercises: number[], target: number): Result {
+export function calculateExercises(dailyExercises: number[], target: number): Result {
     const periodLength = dailyExercises.length;
 
     const trainingDays = dailyExercises.filter(hours => hours > 0).length;
@@ -44,21 +44,21 @@ function calculateExercises(dailyExercises: number[], target: number): Result {
     };
 }
 
-const exerciseArgs: string[] = process.argv.slice(2);
+// const exerciseArgs: string[] = process.argv.slice(2);
 
-if (exerciseArgs.length < 2) {
-  console.log('Error: Please provide a target value followed by daily exercise hours.');
-  console.log('Example: npm run calculateExercises 2 1 0 2 4.5 0 3 1');
-  process.exit(1);
-}
+// if (exerciseArgs.length < 2) {
+//   console.log('Error: Please provide a target value followed by daily exercise hours.');
+//   console.log('Example: npm run calculateExercises 2 1 0 2 4.5 0 3 1');
+//   process.exit(1);
+// }
 
-const targetInput = Number(exerciseArgs[0]);
+// const targetInput = Number(exerciseArgs[0]);
 
-const hoursInput: number[] = exerciseArgs.slice(1).map(hours => Number(hours));
+// const hoursInput: number[] = exerciseArgs.slice(1).map(hours => Number(hours));
 
-if (isNaN(targetInput) || hoursInput.some((hours: number) => isNaN(hours))) {
-  console.log('Error: All provided values must be valid numbers.');
-  process.exit(1);
-}
+// if (isNaN(targetInput) || hoursInput.some((hours: number) => isNaN(hours))) {
+//   console.log('Error: All provided values must be valid numbers.');
+//   process.exit(1);
+// }
 
-console.log(calculateExercises(hoursInput, targetInput));
+// console.log(calculateExercises(hoursInput, targetInput));
