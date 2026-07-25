@@ -1,7 +1,7 @@
 export function calculateBmi(heightCm: number, weightKg: number) {
     const heightM: number = heightCm / 100;
     const bmi: number = weightKg / Math.pow(heightM, 2);
-    let category: string = ""
+    let category: string;
 
     if (bmi < 18.5) {
         category = 'Underweight';
@@ -13,7 +13,7 @@ export function calculateBmi(heightCm: number, weightKg: number) {
         category = 'Obesity';
     }
 
-    return `${category} range`
+    return `${category} range`;
 }
 
 if (process.argv[1] === import.meta.filename) {
