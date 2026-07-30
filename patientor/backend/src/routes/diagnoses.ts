@@ -12,4 +12,4 @@ router.post('/', (_req, res) => {
     res.send('add a new diagnosis');
 });
 
-export default router
+export default router;

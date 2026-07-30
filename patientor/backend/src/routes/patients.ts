@@ -6,7 +6,7 @@ import { z } from 'zod';
 const router = express.Router();
 
 router.get('/', (_req, res: Response<NonSensitivePatient[]>) => {
-    res.send(patientService.getNonSensitivePatients())
+    res.send(patientService.getNonSensitivePatients());
 });
 
 router.get('/:id', (req, res: Response<NonSensitivePatient>) => {
