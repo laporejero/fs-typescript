@@ -1,7 +1,7 @@
 import Content from "./components/Content";
 import Header from "./components/Header";
 import Total from "./components/Total";
-import type { CoursePart } from "./type";
+import type { CoursePart } from "./types";
 
 const App = () => {
   const courseName = "Half Stack application development";

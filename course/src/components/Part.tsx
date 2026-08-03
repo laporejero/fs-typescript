@@ -1,4 +1,4 @@
-import type { CoursePart } from "../type";
+import type { CoursePart } from "../types";
 
 interface PartProps {
     part: CoursePart;
