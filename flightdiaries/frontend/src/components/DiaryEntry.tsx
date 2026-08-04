@@ -5,7 +5,6 @@ interface EntryProps {
 }
 
 const Entry = ({ entry }: EntryProps) => {
-    console.log("Entry: ", entry)
     return (
         <div>
             <h3>{entry.date}</h3>
