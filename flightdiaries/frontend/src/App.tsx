@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      <h2>Diary entries</h2>
+      
       <DiaryEntries entries={entries} />
     </div>
   )
