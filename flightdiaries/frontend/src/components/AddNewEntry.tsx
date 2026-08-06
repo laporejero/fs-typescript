@@ -34,6 +34,7 @@ const AddNewEntry = ({ diaryEntryCreation }: AddNewEntryProps) => {
                 <label>
                     date
                     <input
+                        type="date"
                         value={date}
                         onChange={(event) => setDate(event.target.value)}
                     />
