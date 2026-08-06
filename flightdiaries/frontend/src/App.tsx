@@ -3,9 +3,11 @@ import type { DiaryEntry, NewDiaryEntry, Visibility, Weather } from "./types";
 import diaryEntriesService from "./services/diaryEntriesService";
 import DiaryEntries from "./components/DiaryEntries";
 import AddNewEntry from "./components/AddNewEntry";
+import axios from "axios";
 
 const App = () => {
   const [entries, setEntries] = useState<DiaryEntry[]>([])
+  const [errorMessage, setErrorMessage] = useState('')
   
   useEffect(() => {
     diaryEntriesService.getAll().then(initialEntries => {
@@ -13,7 +15,7 @@ const App = () => {
     })
   }, [])
 
-  const diaryEntryCreation = (
+  const diaryEntryCreation = async (
     date: string,
     visibility: Visibility,
     weather: Weather,
@@ -27,17 +29,31 @@ const App = () => {
         comment: comment
       }
 
-      diaryEntriesService.create(newDiaryEntry)
-        .then(newEntry => {
-          setEntries(entries.concat(newEntry))
-        })
+      const newEntry = await diaryEntriesService.create(newDiaryEntry)
+
+      setEntries(entries.concat(newEntry))
     } catch (error) {
-      console.error('Failed to create entry', error)
+      if (axios.isAxiosError(error)) {
+        const errors = error.response?.data.error
+        const message = "Error: " + errors[0].message
+
+        if (errors) {
+          setErrorMessage(message)
+
+          setTimeout(() => {
+            setErrorMessage('')
+          }, 5000)
+        }
+      }
     }
-  }
+  };
 
   return (
     <div>
+      <h2>Add new entry</h2>
+      {errorMessage && ( 
+        <div style={{ color: 'red' }}>{errorMessage}</div> 
+      )}
       <AddNewEntry diaryEntryCreation={diaryEntryCreation} />
       <DiaryEntries entries={entries} />
     </div>

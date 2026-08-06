@@ -21,7 +21,6 @@ const AddNewEntry = ({ diaryEntryCreation }: AddNewEntryProps) => {
 
     return (
         <div>
-            <h2>Add new entry</h2>
             <form onSubmit={(event) => {
                     event.preventDefault()
                     if (!visibility || !weather) return
