@@ -53,6 +53,6 @@ router.post('/:id/entries', (req: Request<{id: string}, unknown, NewEntry>, res)
             res.status(400).send({ error: 'unknown error' });
         }
     }
-})
+});
 
 export default router;

@@ -112,7 +112,7 @@ export const NewEntrySchema = z.discriminatedUnion("type", [
     OccupationalHealthcareEntrySchema,
 ]);
 
-export type NewEntry = z.infer<typeof NewEntrySchema>
+export type NewEntry = z.infer<typeof NewEntrySchema>;
 
 export interface Patient {
     id: string;
