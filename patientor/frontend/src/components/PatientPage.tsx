@@ -85,6 +85,7 @@ const PatientPage = () => {
                     onSubmit={submitNewEntry}
                     onCancel={() => setEntryFormOpen(false)}
                     error={entryError}
+                    diagnoses={diagnoses}
                 />
             )}
 
