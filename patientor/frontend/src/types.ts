@@ -52,14 +52,39 @@ export type Entry =
   | OccupationalHealthcareEntry
   | HealthCheckEntry;
 
-export interface HealthCheckEntryFormValues {
-  type: "HealthCheck"
+export interface BaseEntryFormValues {
   date: string;
   specialist: string;
   description: string;
   diagnosisCodes?: string[];
+}
+
+export interface HealthCheckEntryFormValues extends BaseEntryFormValues {
+  type: "HealthCheck"
   healthCheckRating: number;
 }
+
+export interface OccupationalHealthcareEntryFormValues extends BaseEntryFormValues {
+  type: "OccupationalHealthcare";
+  employerName: string;
+  sickLeave?: {
+    startDate: string;
+    endDate: string;
+  };
+}
+
+export interface HospitalEntryFormValues extends BaseEntryFormValues {
+  type: "Hospital";
+  discharge: {
+    date: string;
+    criteria: string;
+  }
+}
+
+export type EntryFormValues =
+  | HealthCheckEntryFormValues
+  | OccupationalHealthcareEntryFormValues
+  | HospitalEntryFormValues
 
 export interface Patient {
   id: string;
@@ -72,3 +97,8 @@ export interface Patient {
 }
 
 export type PatientFormValues = Omit<Patient, "id" | "entries">;
+
+export type EntryType =
+  | "HealthCheck"
+  | "OccupationalHealthcare"
+  | "Hospital";

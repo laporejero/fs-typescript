@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Patient, Diagnosis, HealthCheckEntryFormValues } from "../types";
+import { Patient, Diagnosis, EntryFormValues } from "../types";
 import patientService from '../services/patients';
 import diagnosesService from "../services/diagnoses";
 import EntryDetails from "./EntryDetails";
@@ -40,7 +40,7 @@ const PatientPage = () => {
         return <div>Loading...</div>
     }
 
-    const submitNewEntry = async (values: HealthCheckEntryFormValues) => {
+    const submitNewEntry = async (values: EntryFormValues) => {
         setEntryError(undefined);
 
         if (!id || !patient) return;
