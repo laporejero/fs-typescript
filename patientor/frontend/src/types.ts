@@ -52,6 +52,15 @@ export type Entry =
   | OccupationalHealthcareEntry
   | HealthCheckEntry;
 
+export interface HealthCheckEntryFormValues {
+  type: "HealthCheck"
+  date: string;
+  specialist: string;
+  description: string;
+  diagnosisCodes?: string[];
+  healthCheckRating: number;
+}
+
 export interface Patient {
   id: string;
   name: string;
