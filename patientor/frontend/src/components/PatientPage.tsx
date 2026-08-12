@@ -77,7 +77,7 @@ const PatientPage = () => {
             <p>date of birth: {patient.dateOfBirth}</p>
 
             <Button variant="contained" onClick={() => setEntryFormOpen(true)}>
-                Add Entry
+                Add New Entry
             </Button>
 
             {entryFormOpen && (
