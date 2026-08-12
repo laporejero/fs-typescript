@@ -31,7 +31,7 @@ test.describe('Adding a patient', () => {
     await dialog.getByLabel('Date of birth').fill('1990-01-01');
     await dialog.getByLabel('Occupation').fill('Test Engineer');
 
-    await dialog.getByRole('button', { name: 'Add' }).click();
+    await dialog.getByRole('button', { name: 'Add', exact: true }).click();
 
     await expect(page.getByRole('link', { name: patientName })).toBeVisible();
   });
